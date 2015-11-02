@@ -1,0 +1,7 @@
+oleg_test:
+    path: /index
+    defaults: { _controller: OlegTestBundle:Test:test }
+
+portfolio:
+    path: /portfolio
+    defaults: { _controller: OlegTestBundle:Portfolio:portfolio }

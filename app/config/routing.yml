@@ -1,0 +1,8 @@
+oleg_test2:
+    resource: "@OlegTest2Bundle/Resources/config/routing.yml"
+    prefix:   /
+
+oleg_test:
+    resource: "@OlegTestBundle/Resources/config/routing.yml"
+    prefix:   /
+
