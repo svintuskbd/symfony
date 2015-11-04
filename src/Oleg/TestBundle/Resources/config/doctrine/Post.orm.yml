@@ -1,0 +1,27 @@
+Oleg\TestBundle\Entity\Post:
+    type: entity
+    table: post
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '255'
+        description:
+            type: string
+            length: '1000'
+            nullable: true
+        content:
+            type: string
+            length: '4000'
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+    lifecycleCallbacks: {  }
