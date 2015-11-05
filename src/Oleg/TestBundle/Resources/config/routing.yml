@@ -13,3 +13,7 @@ portfolio_view:
 portfolio_del:
     path: /portfolio/del/{id}
     defaults: { _controller: OlegTestBundle:Portfolio:del }
+    
+news_index:
+    path: /news
+    defaults: { _controller: OlegTestBundle:News:index }

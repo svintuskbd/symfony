@@ -1,0 +1,210 @@
+@font-face {
+  font-family: 'SF-UI-Text-Light';
+  src: url("../fonts/SF-UI/SF-UI-Text-Light.otf"); }
+@font-face {
+  font-family: 'SF-UI-Display-Regular';
+  src: url("../fonts/SF-UI/SF-UI-Display-Regular.otf"); }
+@font-face {
+  font-family: 'SF-UI-Display-Bold';
+  src: url("../fonts/SF-UI/SF-UI-Display-Bold.otf"); }
+.wrapper {
+  max-width: 640px;
+  margin: 0 auto; }
+
+header {
+  position: relative;
+  min-height: 1136px;
+  background: url("../files/bg_1.png") no-repeat center center/cover; }
+  header .navbar-header {
+    text-align: center; }
+    header .navbar-header .navbar-brand {
+      float: none;
+      display: inline-block; }
+    header .navbar-header #logo {
+      background: url("../files/logo.png") no-repeat center center;
+      width: 224px;
+      height: 28px;
+      margin-top: 20px; }
+    header .navbar-header .menu-btn {
+      background: url("../files/menu-btn.png");
+      width: 34px;
+      height: 31px;
+      display: inline-block; }
+  header .top-menu {
+    width: 85%;
+    background-color: rgba(40, 34, 28, 0.6); }
+    header .top-menu li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+    header .top-menu .navbar-nav {
+      margin: 0 -15px; }
+    header .top-menu .nav > li > a:focus, header .top-menu .nav > li > a:hover {
+      text-decoration: none;
+      background-color: rgba(40, 34, 28, 0.6); }
+    header .top-menu a {
+      font-size: 28px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 100px;
+      font-family: 'SF-UI-Text-Light'; }
+      header .top-menu a:hover {
+        color: #fff; }
+    header .top-menu .menu-img {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 10px; }
+    header .top-menu .menu-img-home {
+      background: url("../files/menu-img-home.png") no-repeat center center; }
+    header .top-menu .menu-img-favorites {
+      background: url("../files/menu-img-favorites.png") no-repeat center center; }
+    header .top-menu .menu-img-search {
+      background: url("../files/menu-img-search.png") no-repeat center center; }
+    header .top-menu .menu-img-about {
+      background: url("../files/menu-img-about.png") no-repeat center center; }
+  header .recipe-title {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-size: 28px;
+    font-family: 'SF-UI-Display-Regular';
+    padding: 25px;
+    margin: 0; }
+  header .lock-img {
+    background: url("../files/lock.png") no-repeat center center;
+    width: 30px;
+    height: 35px;
+    display: inline-block;
+    margin-top: 30px; }
+
+.content {
+  background-color: #000; }
+  .content .content-box-wrapper {
+    background: url("../files/bg-box-top.png") repeat-x center top, url("../files/bg-box-bottom.png") transparent center bottom repeat-x;
+    padding: 5px 0;
+    overflow: hidden; }
+  .content .content-box {
+    background-color: #fff;
+    overflow: hidden; }
+    .content .content-box .content-box-img {
+      width: 70px;
+      height: 70px;
+      display: inline-block; }
+  .content .name-box {
+    line-height: 100px; }
+    .content .name-box .name-img {
+      background: url("../files/name-box-img.png") no-repeat center center;
+      vertical-align: middle; }
+    .content .name-box a {
+      font-family: 'SF-UI-Display-Bold';
+      font-size: 28px;
+      color: #84c025; }
+  .content .send-box {
+    line-height: 100px; }
+    .content .send-box .name-img {
+      background: url("../files/send-box-img.png") no-repeat center center;
+      vertical-align: middle; }
+    .content .send-box a {
+      font-family: 'SF-UI-Display-Bold';
+      font-size: 28px;
+      color: #84c025; }
+  .content .ingredients-box {
+    font-family: 'SF-UI-Display-Regular';
+    padding: 25px 0; }
+    .content .ingredients-box .ingredients-img {
+      background: url("../files/ingredients-box-img.png") no-repeat center center; }
+    .content .ingredients-box table {
+      font-size: 24px; }
+      .content .ingredients-box table tr > td {
+        padding: 0 10px; }
+  .content .recipe-list {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .content .recipe-list li {
+      border-top: 3px dotted #c8c8c8; }
+      .content .recipe-list li:first-of-type {
+        border-top: none; }
+    .content .recipe-list .content-box-img {
+      color: #f4a506;
+      padding: 7px 22px;
+      font-size: 36px; }
+    .content .recipe-list .recipe-box {
+      font-family: 'SF-UI-Display-Regular';
+      font-size: 24px;
+      padding: 25px 0; }
+      .content .recipe-list .recipe-box .recipe-img {
+        background: url("../files/recipe-box-img.png") no-repeat center center; }
+  .content .like-box {
+    font-size: 36px;
+    color: #f4a506;
+    text-align: center;
+    padding: 30px 0; }
+  .content .content-like-box-wrapper {
+    background: url("../files/bg-like-box-top.png") repeat-x center top, url("../files/bg-like-box-bottom.png") transparent center bottom repeat-x;
+    padding: 5px 0;
+    overflow: hidden;
+    position: relative;
+    top: -10px; }
+  .content .content-like-box {
+    overflow: hidden; }
+    .content .content-like-box .content-box-img {
+      width: 70px;
+      height: 70px;
+      display: inline-block; }
+  .content .like-block-box {
+    overflow: auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.65);
+    padding: 20px 0; }
+    .content .like-block-box .like-box-img {
+      width: 85px;
+      height: 85px;
+      display: inline-block; }
+    .content .like-block-box .like-img-1 {
+      background: url("../files/like-block-img-1.png") no-repeat center center; }
+    .content .like-block-box .like-img-2 {
+      background: url("../files/like-block-img-2.png") no-repeat center center; }
+    .content .like-block-box .like-img-3 {
+      background: url("../files/like-block-img-3.png") no-repeat center center; }
+    .content .like-block-box .lock-img {
+      margin-top: 15px; }
+  .content .lock-img {
+    background: url("../files/lock.png") no-repeat center center;
+    width: 30px;
+    height: 35px;
+    display: inline-block; }
+  .content .share-in-social {
+    padding: 40px 0;
+    text-align: center; }
+    .content .share-in-social .share-link {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .content .share-in-social .share-link li {
+        display: inline-block;
+        margin: 0 15px; }
+        .content .share-in-social .share-link li:first-of-type {
+          position: relative;
+          top: 50px; }
+        .content .share-in-social .share-link li:last-of-type {
+          position: relative;
+          top: 50px; }
+    .content .share-in-social .share-img {
+      background: url("../files/share-img.png");
+      width: 275px;
+      height: 207px;
+      display: inline-block; }
+    .content .share-in-social .share-icon {
+      width: 50px;
+      height: 50px;
+      display: inline-block; }
+    .content .share-in-social .vk-icon {
+      background: url("../files/vk-icon.png") no-repeat center center; }
+    .content .share-in-social .fb-icon {
+      background: url("../files/fb-icon.png") no-repeat center center; }
+    .content .share-in-social .ok-icon {
+      background: url("../files/ok-icon.png") no-repeat center center; }
+    .content .share-in-social .instagram-icon {
+      background: url("../files/instagram-icon.png") no-repeat center center; }
+
+/*# sourceMappingURL=style.css.map */
