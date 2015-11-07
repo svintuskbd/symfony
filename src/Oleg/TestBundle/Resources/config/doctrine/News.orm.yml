@@ -1,6 +1,7 @@
-Oleg\TestBundle\Entity\Post:
+Oleg\TestBundle\Entity\News:
     type: entity
-    table: post
+    table: news
+    repositoryClass: Oleg\TestBundle\Repository\NewsRepository
     id:
         id:
             type: integer
@@ -25,4 +26,11 @@ Oleg\TestBundle\Entity\Post:
             type: datetime
             column: updated_at
             nullable: true
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy: news
+            joinColumn:
+              name: category_id
+              referencedColumnName: id
     lifecycleCallbacks: {  }

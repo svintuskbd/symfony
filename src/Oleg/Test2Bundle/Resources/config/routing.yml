@@ -1,3 +1,0 @@
-oleg_test2_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: OlegTest2Bundle:Default:index }

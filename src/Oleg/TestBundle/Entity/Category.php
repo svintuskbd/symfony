@@ -3,9 +3,9 @@
 namespace Oleg\TestBundle\Entity;
 
 /**
- * Post
+ * Category
  */
-class Post
+class Category
 {
     /**
      * @var integer
@@ -20,12 +20,7 @@ class Post
     /**
      * @var string
      */
-    private $description;
-
-    /**
-     * @var string
-     */
-    private $content;
+    private $slug;
 
     /**
      * @var \DateTime
@@ -53,7 +48,7 @@ class Post
      *
      * @param string $title
      *
-     * @return Post
+     * @return Category
      */
     public function setTitle($title)
     {
@@ -73,51 +68,27 @@ class Post
     }
 
     /**
-     * Set description
+     * Set slug
      *
-     * @param string $description
+     * @param string $slug
      *
-     * @return Post
+     * @return Category
      */
-    public function setDescription($description)
+    public function setSlug($slug)
     {
-        $this->description = $description;
+        $this->slug = $slug;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get slug
      *
      * @return string
      */
-    public function getDescription()
+    public function getSlug()
     {
-        return $this->description;
-    }
-
-    /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return Post
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
+        return $this->slug;
     }
 
     /**
@@ -125,7 +96,7 @@ class Post
      *
      * @param \DateTime $createdAt
      *
-     * @return Post
+     * @return Category
      */
     public function setCreatedAt()
     {
@@ -149,7 +120,7 @@ class Post
      *
      * @param \DateTime $updatedAt
      *
-     * @return Post
+     * @return Category
      */
     public function setUpdatedAt()
     {
@@ -166,5 +137,51 @@ class Post
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $news;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->news = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add news
+     *
+     * @param \Oleg\TestBundle\Entity\News $news
+     *
+     * @return Category
+     */
+    public function addNews(\Oleg\TestBundle\Entity\News $news)
+    {
+        $this->news[] = $news;
+
+        return $this;
+    }
+
+    /**
+     * Remove news
+     *
+     * @param \Oleg\TestBundle\Entity\News $news
+     */
+    public function removeNews(\Oleg\TestBundle\Entity\News $news)
+    {
+        $this->news->removeElement($news);
+    }
+
+    /**
+     * Get news
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNews()
+    {
+        return $this->news;
     }
 }

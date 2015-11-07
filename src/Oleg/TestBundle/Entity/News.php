@@ -3,9 +3,9 @@
 namespace Oleg\TestBundle\Entity;
 
 /**
- * Post
+ * News
  */
-class Post
+class News
 {
     /**
      * @var integer
@@ -53,7 +53,7 @@ class Post
      *
      * @param string $title
      *
-     * @return Post
+     * @return News
      */
     public function setTitle($title)
     {
@@ -77,7 +77,7 @@ class Post
      *
      * @param string $description
      *
-     * @return Post
+     * @return News
      */
     public function setDescription($description)
     {
@@ -101,7 +101,7 @@ class Post
      *
      * @param string $content
      *
-     * @return Post
+     * @return News
      */
     public function setContent($content)
     {
@@ -125,7 +125,7 @@ class Post
      *
      * @param \DateTime $createdAt
      *
-     * @return Post
+     * @return News
      */
     public function setCreatedAt()
     {
@@ -149,11 +149,11 @@ class Post
      *
      * @param \DateTime $updatedAt
      *
-     * @return Post
+     * @return News
      */
-    public function setUpdatedAt()
+    public function setUpdatedAt($updatedAt)
     {
-        $this->updatedAt = new \DateTime;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -166,5 +166,39 @@ class Post
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    /**
+     * @var \Oleg\TestBundle\Entity\Category
+     */
+    private $category;
+
+
+    /**
+     * Set category
+     *
+     * @param \Oleg\TestBundle\Entity\Category $category
+     *
+     * @return News
+     */
+    public function setCategory(\Oleg\TestBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Oleg\TestBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+    
+    public function __toString() 
+    {
+        return $this->title;
     }
 }

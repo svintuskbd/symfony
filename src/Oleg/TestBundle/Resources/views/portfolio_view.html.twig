@@ -1,6 +1,6 @@
 {% extends "OlegTestBundle::base_view.html.twig" %}
 {% block content %}
-    {% for cont in portfolio %}
+    {#{% for cont in portfolio %}
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">{{ cont.title }}</h3>
@@ -15,5 +15,11 @@
                <a href="" class="btn btn-lg btn-success btn-block del_button">Редактировать</a>
             </div>
         </div>
+    {% endfor %}#}
+    
+    {#{{ dump(cat) }}#}
+    {% for article in cat.getNews %}
+        <h3>{{ article }}</h3>
+
     {% endfor %}
 {% endblock %}
