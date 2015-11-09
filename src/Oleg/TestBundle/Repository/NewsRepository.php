@@ -10,11 +10,11 @@ namespace Oleg\TestBundle\Repository;
  */
 class NewsRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getNewsByTitle($title)
+    public function getNewsByslug($slug)
     {
         $qb = $this->createQueryBuilder('n');
-        $qb->andWhere('n.title = :title')
-                ->setParameter(':title', $title);
+        $qb->andWhere('n.slug = :slug')
+                ->setParameter(':slug', $slug);
 
         return $qb->getQuery()->getResult();
     }

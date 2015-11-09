@@ -127,9 +127,9 @@ class Post
      *
      * @return Post
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = new \DateTime;
 
         return $this;
     }
@@ -151,9 +151,9 @@ class Post
      *
      * @return Post
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = new \DateTime;
 
         return $this;
     }

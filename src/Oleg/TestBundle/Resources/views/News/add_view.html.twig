@@ -1,0 +1,29 @@
+{% extends 'OlegTestBundle::base_view.html.twig' %}
+{% block content %}
+    <div class="panel panel-default">
+        <form method="post" action="{{url('news_add')}}">
+            <div class="panel-heading">
+                <label>Редактировать заголовок</label>
+                <input type="text" name="title" value=""/>
+                <label>Редактировать ссылку</label>
+                <input type="text" name="url" value=""/>
+            </div>
+            <div class="panel-body">
+                <label value="" name="">Категория</label>
+                <select size="1" name="category">
+                    <option></option>
+                {% for cat in category %}
+                    <option value="{{ cat.slug }}">{{ cat.title|raw }}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="panel-body">
+                <label>Редактировать контент</label>
+                <textarea id="editor1" name="txt" cols="100" rows="20"></textarea>
+                <label>Редактировать описание</label>
+                <textarea id="editor2" name="description" cols="115" rows="10"></textarea>
+            </div>
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+{% endblock %}

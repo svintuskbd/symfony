@@ -19,6 +19,9 @@ Oleg\TestBundle\Entity\News:
         content:
             type: string
             length: '4000'
+        slug:
+            type: string
+            length: '255'
         createdAt:
             type: datetime
             column: created_at

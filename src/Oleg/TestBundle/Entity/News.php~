@@ -127,9 +127,9 @@ class News
      *
      * @return News
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = new \DateTime;
 
         return $this;
     }
@@ -167,5 +167,38 @@ class News
     {
         return $this->updatedAt;
     }
-}
+    /**
+     * @var \Oleg\TestBundle\Entity\Category
+     */
+    private $category;
 
+
+    /**
+     * Set category
+     *
+     * @param \Oleg\TestBundle\Entity\Category $category
+     *
+     * @return News
+     */
+    public function setCategory(\Oleg\TestBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Oleg\TestBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+    
+    public function __toString() 
+    {
+        return $this->title;
+    }
+}

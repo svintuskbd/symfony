@@ -16,4 +16,20 @@ portfolio_del:
     
 news_index:
     path: /news
-    defaults: { _controller: OlegTestBundle:News:index }
+    defaults: { _controller: OlegTestBundle:News:news }
+    
+news_view:
+    path: /news/view/{slug}
+    defaults: { _controller: OlegTestBundle:News:view }
+    
+news_del:
+    path: /news/del/{slug}
+    defaults: { _controller: OlegTestBundle:News:delArticle }
+
+news_edit:
+    path: /news/edit/{slug}
+    defaults: { _controller: OlegTestBundle:News:editArticle }
+
+news_add:
+    path: /news/add
+    defaults: { _controller: OlegTestBundle:News:addArticle }

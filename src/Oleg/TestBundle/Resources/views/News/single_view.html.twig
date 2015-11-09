@@ -1,0 +1,18 @@
+{% extends "OlegTestBundle::base_view.html.twig" %}
+{% block content %}
+    {% for content in article %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ content.title|raw }}</h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    {{ content.content|raw }}
+                </p>
+            </div>
+            <div class="panel-footer">
+               <a href="{{ url('news_del', {'slug': content.slug|raw}) }}" class="btn btn-lg btn-success btn-block edit_button">Удалить</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

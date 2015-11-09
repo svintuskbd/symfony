@@ -24,9 +24,9 @@ class PortfolioController extends Controller
     
     public function portfolioAction() 
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $category = $em->getRepository('OlegTestBundle:Category')->find(1);
-        dump($category->getNews());
+//        $em = $this->getDoctrine()->getEntityManager();
+//        $category = $em->getRepository('OlegTestBundle:Category')->find(1);
+//        dump($category->getNews());
         
 //        $category = new Category;
 //        $article = new News;
@@ -46,22 +46,34 @@ class PortfolioController extends Controller
 //        $em->flush();
         
 
-//        $em = $this->get('doctrine.orm.entity_manager');
-//        $data = $em->getRepository('OlegTestBundle:Post')->findAll();
-//        $arr = array('portfolio' => $data);
+        $em = $this->get('doctrine.orm.entity_manager');
+        $data = $em->getRepository('OlegTestBundle:Post')->findAll();
 //        $em = $this->get('doctrine.orm.entity_manager');
 //        $data = $em->getRepository('OlegTestBundle:News')->getNewsByTitle('title');
-//        dump($data);
 //        $arr = array('portfolio' => $data);
-        return $this->render('OlegTestBundle::portfolio_view.html.twig', array('cat' => $category));
+        return $this->render('OlegTestBundle::portfolio_view.html.twig', array('portfolio' => $data));
     }
     
-    public function viewAction($id = 5)
+    public function addCategory()
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        
+        $category = new Category;
+        $category->setSlug()
+                ->setDescription()
+                ->setCreatedAt()
+                ->setUpdatedAt();
+        $em->persist($category);
+        $em->flush();
+            
+    }
+    
+    public function viewAction($id)
     {  
         $em = $this->get('doctrine.orm.entity_manager');
-        $data = $em->getRepository('OlegTestBundle:Post')->find(7);
-//        dump($data);
-//        $arr = array('portfolio' => $data);
+        
+        $data = $em->getRepository('OlegTestBundle:Post')->find($id);
+//      Create Article
 //        $post = new Post;
 //        $post->setTitle('title')
 //                ->setDescription('description')
@@ -71,14 +83,7 @@ class PortfolioController extends Controller
 //        $em->flush();
         
         
-        $data->setTitle('chenget title');
-        $data->setUpdatedAt(new \DateTime('+3 day'));
-        $em->persist($data);
-        dump($data->getUpdatedAt());
-        $em->flush();
-        
-        return $this->render('OlegTestBundle::single_view.html.twig');
-        
+        return $this->render('OlegTestBundle::single_view.html.twig', array('portfolio' => $data));  
     }
     
     public function delAction($id)

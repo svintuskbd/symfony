@@ -98,9 +98,9 @@ class Category
      *
      * @return Category
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = new \DateTime;
 
         return $this;
     }
@@ -122,9 +122,9 @@ class Category
      *
      * @return Category
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = new \DateTime;
 
         return $this;
     }
@@ -138,5 +138,50 @@ class Category
     {
         return $this->updatedAt;
     }
-}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $news;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->news = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add news
+     *
+     * @param \Oleg\TestBundle\Entity\News $news
+     *
+     * @return Category
+     */
+    public function addNews(\Oleg\TestBundle\Entity\News $news)
+    {
+        $this->news[] = $news;
+
+        return $this;
+    }
+
+    /**
+     * Remove news
+     *
+     * @param \Oleg\TestBundle\Entity\News $news
+     */
+    public function removeNews(\Oleg\TestBundle\Entity\News $news)
+    {
+        $this->news->removeElement($news);
+    }
+
+    /**
+     * Get news
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNews()
+    {
+        return $this->news;
+    }
+}
