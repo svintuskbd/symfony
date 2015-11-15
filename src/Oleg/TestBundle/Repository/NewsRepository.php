@@ -10,12 +10,23 @@ namespace Oleg\TestBundle\Repository;
  */
 class NewsRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getNewsByslug($slug)
+    public function getNewsBySlug($slug)
     {
         $qb = $this->createQueryBuilder('n');
         $qb->andWhere('n.slug = :slug')
                 ->setParameter(':slug', $slug);
 
         return $qb->getQuery()->getResult();
+    }
+    
+    public function getArticle()
+    {
+
+        
+//        $em = $this->get('doctrine.orm.entity_manager');
+//        $news = $em->createQuery('select n from OlegTestBundle:News n '
+//                . ' inner join OlegTestBundle:Category c '
+//                . 'where n.category_id = c.id')
+//             ->getResult();
     }
 }

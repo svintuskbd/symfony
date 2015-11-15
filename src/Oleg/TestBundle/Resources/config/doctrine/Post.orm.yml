@@ -1,6 +1,7 @@
 Oleg\TestBundle\Entity\Post:
     type: entity
     table: post
+    repositoryClass: Oleg\TestBundle\Repository\PostRepository
     id:
         id:
             type: integer

@@ -13,14 +13,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Oleg\TestBundle\Entity\Post;
 use Oleg\TestBundle\Entity\News;
 use Oleg\TestBundle\Entity\Category;
-use Oleg\TestBundle\Model\NewsModel;
 
 class NewsController extends Controller
 {
     public function newsAction()
     {
         $em = $this->get('doctrine.orm.entity_manager');
-        $data = $em->getRepository('OlegTestBundle:News')->findAll();
+        $data = $em->getRepository('OlegTestBundle:News')->findBy(array(), array('id' => 'DESC'));
+        
         dump($data);
 
         return $this->render('OlegTestBundle:News:news_view.html.twig', array('news' => $data));
@@ -29,7 +29,9 @@ class NewsController extends Controller
     public function viewAction($slug)
     {  
         $em = $this->get('doctrine.orm.entity_manager');
-        $data = $em->getRepository('OlegTestBundle:News')->getNewsByslug($slug);
+        $data = $em->getRepository('OlegTestBundle:News')->getNewsBySlug($slug);
+//        $data = $em->getRepository('OlegTestBundle:News')->findOneBySlug($slug);
+//        dump($data->getCategory());
         
         return $this->render('OlegTestBundle:News:single_view.html.twig', array('article' => $data));  
     }
@@ -37,8 +39,8 @@ class NewsController extends Controller
     public function editArticleAction($slug)
     {
         $em = $this->get('doctrine.orm.entity_manager');
-        $data = $em->getRepository('OlegTestBundle:News')->getNewsByslug($slug);
-        dump($data);
+        $data = $em->getRepository('OlegTestBundle:News')->getNewsBySlug($slug);
+        
         
         return $this->render('OlegTestBundle:News:edit_view.html.twig', array('article' => $data));
     }
@@ -47,21 +49,10 @@ class NewsController extends Controller
     {
         $em = $this->get('doctrine.orm.entity_manager');
         $data = $em->getRepository('OlegTestBundle:Category')->findAll();
-        
-        if($_POST){
-            $newsModel = new NewsModel;
-            $formContent = $newsModel->readPost($_POST);
-                 
-            $category = $em->getRepository('OlegTestBundle:Category')->findOneBySlug($formContent['category']);
-            $article = new News;
-            $article->setTitle($formContent['title'])
-                    ->setDescription($formContent['description'])
-                    ->setContent($formContent['content'])
-                    ->setSlug($formContent['url'])
-                    ->setCreatedAt()
-                    ->setCategory($category);
-            $em->persist($article);
-            $em->flush();
+        $newsManager = $this->get('news_manager');
+        $request = $this->get('request');
+        if($request->get('data')){
+            $res = $newsManager->createArticle($request->get('data'));
             return $this->redirectToRoute('news_index');
         }
         
