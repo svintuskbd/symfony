@@ -127,9 +127,9 @@ class News
      *
      * @return News
      */
-    public function setCreatedAt()
+    public function setCreatedAt($date)
     {
-        $this->createdAt = new \DateTime;
+        $this->createdAt = $date;
 
         return $this;
     }
@@ -151,9 +151,9 @@ class News
      *
      * @return News
      */
-    public function setUpdatedAt()
+    public function setUpdatedAt($date)
     {
-        $this->updatedAt = new \DateTime;
+        $this->updatedAt = $date;
 
         return $this;
     }

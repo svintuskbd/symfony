@@ -4,6 +4,9 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">{{ content.title|raw }}</h3>
+                {% if content.category != null %}
+                    <span>Категория записи: {{content.Category.getTitle}} </span>
+                {% endif %}
             </div>
             <div class="panel-body">
                 <p>

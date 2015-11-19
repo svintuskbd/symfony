@@ -3,14 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Controller/PortfolioController.php</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Resources/views/News/single_view.html.twig</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Resources/views/News/add_view.html.twig</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Resources/views/News/search_form.html.twig</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Resources/views/News/search_view.html.twig</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Service/NewsManager.php</file>
             <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Repository/NewsRepository.php</file>
-            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Entity/News.php</file>
-            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Entity/Post.php</file>
-            <file>file:/home/oleg/server/symfony.zz/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php</file>
-            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Resources/config/doctrine/News.orm.yml</file>
-            <file>file:/home/oleg/server/symfony.zz/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php</file>
-            <file>file:/home/oleg/server/symfony.zz/vendor/doctrine/orm/lib/Doctrine/ORM/QueryBuilder.php</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Resources/views/News/news_view.html.twig</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Resources/config/routing.yml</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Resources/config/services.yml</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Controller/NewsController.php</file>
+            <file>file:/home/oleg/server/symfony.zz/src/Oleg/TestBundle/Controller/CategoryController.php</file>
         </group>
     </open-files>
 </project-private>

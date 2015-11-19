@@ -31,7 +31,11 @@ class Category
      * @var \DateTime
      */
     private $updatedAt;
-
+    
+    public function __toString() 
+    {
+        return $this->title;
+    }
 
     /**
      * Get id

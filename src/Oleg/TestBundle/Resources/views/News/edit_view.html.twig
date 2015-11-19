@@ -1,29 +1,35 @@
 {% extends 'OlegTestBundle::base_view.html.twig' %}
 {% block content %}
+    {% for content in article %}
     <div class="panel panel-default">
-        <form method="post" action="">
+        <form method="post" action="{{ url('news_edit', {'slug': content.slug|raw}) }}">
             <div class="panel-heading">
                 <label>Редактировать заголовок</label>
-                <input type="text" name="title" value=""/>
+                <input type="text" name="data[title]" value="{{content.title|raw}}"/>
                 <label>Редактировать ссылку</label>
-                <input type="text" name="url" value=""/>
+                <input type="text" name="data[url]" value="{{content.slug|raw}}"/>
             </div>
             <div class="panel-body">
                 <label>Категория</label>
-                <select size="1" name="category[]">
-                    <option value="Чебурашка">Чебурашка</option>
-                    <option selected value="Крокодил Гена">Крокодил Гена</option>
-                    <option value="Шапокляк">Шапокляк</option>
-                    <option value="Крыса Лариса">Крыса Лариса</option>
+                <select size="1" name="data[category]">
+                    {% if content.category != null %}
+                        <option selected value="{{content.Category.getTitle}}">{{content.Category.getTitle}}</option>
+                    {% else %}
+                        <option></option>
+                    {% endif %}
+                    {% for cat in category %}
+                        <option value="{{ cat.slug }}">{{ cat.title|raw }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="panel-body">
                 <label>Редактировать контент</label>
-                <textarea id="editor1" name="txt" cols="100" rows="20"></textarea>
+                <textarea id="editor1" name="data[txt]" cols="100" rows="20">{{content.content|raw}}</textarea>
                 <label>Редактировать описание</label>
-                <textarea id="editor2" name="description" cols="115" rows="10"></textarea>
+                <textarea id="editor2" name="data[description]" cols="115" rows="10">{{content.description|raw}}</textarea>
             </div>
             <button type="submit">Сохранить</button>
         </form>
     </div>
+    {% endfor %}
 {% endblock %}

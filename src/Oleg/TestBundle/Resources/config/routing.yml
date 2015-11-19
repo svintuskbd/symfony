@@ -33,3 +33,15 @@ news_edit:
 news_add:
     path: /news/add
     defaults: { _controller: OlegTestBundle:News:addArticle }
+
+news_search:
+    path: /news/search
+    defaults: { _controller: OlegTestBundle:News:searchArticles }
+    
+test_ajax:
+    path: /ajax
+    defaults: { _controller: OlegTestBundle:Ajax:testAjax }
+    
+ajax_action:
+    path: /ajax2
+    defaults: { _controller: OlegTestBundle:Ajax:ajax }

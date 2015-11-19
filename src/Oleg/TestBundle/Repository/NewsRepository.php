@@ -21,12 +21,18 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
     
     public function getArticle()
     {
-
+        $qb = $this->createQueryBuilder('n');
+        $qb->orderBy('n.updatedAt', 'DESC');
         
-//        $em = $this->get('doctrine.orm.entity_manager');
-//        $news = $em->createQuery('select n from OlegTestBundle:News n '
-//                . ' inner join OlegTestBundle:Category c '
-//                . 'where n.category_id = c.id')
-//             ->getResult();
+        return $qb->getQuery()->getResult();
+    }
+    
+    public function search($str)
+    {
+        $qb = $this->createQueryBuilder('n');
+        $qb->andwhere('n.title LIKE :title')
+               ->setParameter('title', '%'.$str.'%');
+        
+        return $qb->getQuery()->getResult();
     }
 }

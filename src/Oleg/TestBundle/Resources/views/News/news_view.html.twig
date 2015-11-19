@@ -2,6 +2,7 @@
 {% block content %}
     <nav class="navbar navbar-inverse">
         <a href="{{url('news_add')}}" class="btn btn-lg btn-success btn-block add_button">Добавить новую запись</a>
+        {% include 'OlegTestBundle:News:search_form.html.twig' %}
     </nav>
     {% for cont in news %}
         <div class="panel panel-default">

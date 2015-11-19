@@ -1,0 +1,30 @@
+{% extends "OlegTestBundle::base_view.html.twig" %}
+{% block content %}
+<div class="panel-heading">
+    <label>заголовок</label>
+    <input id="name" type="text" name="log" value=""/>
+    <a href="javascript:void(0)" id="buttonTest">Кнопка</a>
+</div>
+    
+<script>
+    var inputVal = $.('#name').val();
+    lalert(inputVal);
+    $('#buttonTest').on('click', function(){
+        $.ajax({
+            method: "POST",
+            url: "{{url('ajax_action')}}",
+            data: '',
+            success: function(data){
+                console.log(data);
+            },
+            error: function(){
+                alert('error');
+            }
+        });
+    });
+    
+</script>
+{% endblock %}
+
+
+

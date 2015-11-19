@@ -19,10 +19,8 @@ class NewsController extends Controller
     public function newsAction()
     {
         $em = $this->get('doctrine.orm.entity_manager');
-        $data = $em->getRepository('OlegTestBundle:News')->findBy(array(), array('id' => 'DESC'));
+        $data = $em->getRepository('OlegTestBundle:News')->getArticle();
         
-        dump($data);
-
         return $this->render('OlegTestBundle:News:news_view.html.twig', array('news' => $data));
     }
     
@@ -30,8 +28,6 @@ class NewsController extends Controller
     {  
         $em = $this->get('doctrine.orm.entity_manager');
         $data = $em->getRepository('OlegTestBundle:News')->getNewsBySlug($slug);
-//        $data = $em->getRepository('OlegTestBundle:News')->findOneBySlug($slug);
-//        dump($data->getCategory());
         
         return $this->render('OlegTestBundle:News:single_view.html.twig', array('article' => $data));  
     }
@@ -40,36 +36,50 @@ class NewsController extends Controller
     {
         $em = $this->get('doctrine.orm.entity_manager');
         $data = $em->getRepository('OlegTestBundle:News')->getNewsBySlug($slug);
-        
-        
-        return $this->render('OlegTestBundle:News:edit_view.html.twig', array('article' => $data));
-    }
-    
-    public function addArticleAction($post = null)
-    {
-        $em = $this->get('doctrine.orm.entity_manager');
-        $data = $em->getRepository('OlegTestBundle:Category')->findAll();
-        $newsManager = $this->get('news_manager');
+        $category = $em->getRepository('OlegTestBundle:Category')->findAll();
         $request = $this->get('request');
         if($request->get('data')){
-            $res = $newsManager->createArticle($request->get('data'));
+            $newsManager = $this->get('news_manager');
+            $res = $newsManager->updateArticle($request->get('data'), $slug);
+            
             return $this->redirectToRoute('news_index');
         }
         
-        return $this->render('OlegTestBundle:News:add_view.html.twig', array('category' => $data));
+        return $this->render('OlegTestBundle:News:edit_view.html.twig', array('article' => $data, 'category' => $category));
+    }
+    
+    public function addArticleAction()
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $category = $em->getRepository('OlegTestBundle:Category')->findAll();
+        $request = $this->get('request');
+        if($request->get('data')){
+            $newsManager = $this->get('news_manager');
+            $res = $newsManager->createArticle($request->get('data'));
+            
+            return $this->redirectToRoute('news_index');
+        }
+        
+        return $this->render('OlegTestBundle:News:add_view.html.twig', array('category' => $category));
     }
     
     public function delArticleAction($slug)
     {
-        $em = $this->get('doctrine.orm.entity_manager');
-        $data = $em->getRepository('OlegTestBundle:News')->findOneBySlug($slug);
-        try {
-            $em->remove($data);
-            $em->flush();
-        } catch (\Doctrine\Orm\NoResultException $e) {
-            $product = null;
-        }
+        $this->get('news_manager')->delArticle($slug);
         
         return $this->redirectToRoute('news_index');
+    }
+    
+    public function searchArticlesAction()
+    {
+        $request = $this->get('request');
+        if($request->get('search')){
+            $em = $this->get('doctrine.orm.entity_manager');
+            $data = $em->getRepository('OlegTestBundle:News')->search($request->get('search'));
+            dump($data);
+            return $this->render('OlegTestBundle:News:search_view.html.twig', array('search' => $data));
+        }
+        
+        return $this->render('OlegTestBundle:News:search_view.html.twig');
     }
 }
