@@ -12,4 +12,16 @@ services:
         class: Oleg\TestBundle\Admin\ArticleAdmin
         arguments: [~, Oleg\TestBundle\Entity\News, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: News }
+            - { name: sonata.admin, manager_type: orm, label: Новости }
+            
+    admin.category:
+        class: Oleg\TestBundle\Admin\CategoryAdmin
+        arguments: [~, Oleg\TestBundle\Entity\Category, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Категории }
+            
+    admin.post:
+        class: Oleg\TestBundle\Admin\PostAdmin
+        arguments: [~, Oleg\TestBundle\Entity\Post, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Записи }

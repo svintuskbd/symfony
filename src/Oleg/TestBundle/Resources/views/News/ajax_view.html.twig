@@ -7,9 +7,9 @@
 </div>
     
 <script>
-    var inputVal = $.('#name').val();
-    lalert(inputVal);
     $('#buttonTest').on('click', function(){
+        var name = $('#name').val();
+        alert(name);
         $.ajax({
             method: "POST",
             url: "{{url('ajax_action')}}",
